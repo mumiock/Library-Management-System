@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  postgres:
+    container_name: postgres_container_library
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: invent_analytics
+      POSTGRES_PASSWORD: inv2024!
+      POSTGRES_DB: librarydb
+      PGDATA: /var/lib/postgresql/data/
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks: 
+      postgres:
+        ipv4_address: 172.40.0.2
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U invent_analytics -d librarydb"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+networks:
+  postgres:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.40.0.0/16
+
+volumes:
+  postgres_data:
+    driver: local
