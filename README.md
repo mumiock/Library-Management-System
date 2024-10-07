@@ -64,7 +64,7 @@ The project is organized into three main directories:
 1. Clone the repository:
    ```bash
    git clone https://github.com/mumiock/Library-Management-System.git
-   cd library-management
+   cd Library-Management-System
    ```
 
 2. Set up the database:

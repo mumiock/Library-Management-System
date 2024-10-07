@@ -16,7 +16,7 @@ These instructions will help you set up and run the client-side application on y
 1. Clone the repository (if you haven't already):
    ```bash
    git clone https://github.com/mumiock/Library-Management-System.git
-   cd library-management/client
+   cd Library-Management-System/client
    ```
 
 2. Install the dependencies:
